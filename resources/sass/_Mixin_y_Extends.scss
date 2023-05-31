@@ -1,0 +1,29 @@
+@mixin transicion($property, $duration, $timing: linear) {
+    -moz-transition: $property $duration $timing;
+    -webkit-transition: $property $duration $timing;
+    transition: $property $duration $timing;
+}
+
+@mixin border-radius($property) {
+    -webkit-border-radius: $property;
+    -moz-border-radius: $property;
+    border-radius: $property;
+}
+
+%display-flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+%centrar {
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+}

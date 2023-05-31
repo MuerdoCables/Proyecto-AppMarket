@@ -1,0 +1,32 @@
+$primary: #c29938;
+$secondary: #4a6f53;
+
+//import the functions & variables
+@import "../scss/functions";
+@import "../scss/variables";
+
+$mis-colores: (
+    "gris": darken(#f8f9fa, 5%),
+    "grisOscuro": darken(#f8f9fa, 20%),
+);
+
+$theme-colors: map-merge($mis-colores, $theme-colors);
+
+// import bootstrap
+@import "../scss/bootstrap.scss";
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+}
+
+header .active {
+    color: red;
+    font-weight: bold;
+}
