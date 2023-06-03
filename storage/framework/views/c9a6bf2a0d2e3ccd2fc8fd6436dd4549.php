@@ -10,8 +10,6 @@
 
         <?php echo method_field('put'); ?>
 
-        
-
         <br>
         <br>
         <label>

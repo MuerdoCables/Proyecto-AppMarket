@@ -17,12 +17,12 @@ class ValoracionFactory extends Factory
      */
     public function definition(): array
     {
-        $idValoracion = $this->faker->unique()->randomElements([1, 2, 3, 4, 5], 2, true);
-        if ($idValoracion == [1, 1]) $idValoracion = $this->faker->unique()->randomElements([1, 2, 3, 4, 5], 2, true);
+        // $idValoracion = $this->faker->unique()->randomElements([1, 2, 3, 4, 5], 2, true);
+        // if ($idValoracion == [1, 1]) $idValoracion = $this->faker->unique()->randomElements([1, 2, 3, 4, 5], 2, true);
         return [
-            'val_app_id' => $idValoracion[0],
-            'val_usu_id' => $idValoracion[1],
-            'val_puntuacion' => $this->faker->numberBetween(0, 10),
+            // 'val_app_id' => $idValoracion[0],
+            // 'val_usu_id' => $idValoracion[1],
+            'val_puntuacion' => $this->faker->numberBetween(0, 5),
             'val_texto' => $this->faker->paragraph(),
         ];
     }

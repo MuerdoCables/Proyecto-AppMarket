@@ -52,8 +52,9 @@ class AppController extends Controller
      */
     public function show(App $app)
     {
-        $usuario = DB::table('usuarios')->leftJoin('apps', 'usuarios.usu_id', '=', 'apps.app_usu_id')->where('app_id', $app->app_id)->first();
-        $valoraciones = DB::table('valoraciones')->leftJoin('apps', 'valoraciones.val_app_id', '=', 'apps.app_id')->where('app_id', $app->app_id)->get();
+        $usuario = DB::table('usuarios')->where('usu_id', $app->app_usu_id)->first();
+        $valoraciones = DB::table('valoraciones')->leftJoin('usuarios', 'valoraciones.val_usu_id', '=', 'usuarios.usu_id')
+            ->where('val_app_id', $app->app_id)->orderBy('val_id', 'desc')->paginate(2);
         return view('apps.show', compact('app', 'usuario', 'valoraciones')); // compact('app') == ['app' => $app]
     }
 

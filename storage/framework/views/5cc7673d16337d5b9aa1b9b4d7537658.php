@@ -17,7 +17,7 @@
             <?php $__currentLoopData = $apps[$categoria->cat_nombre]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $app): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-md-2 col-sm-4 col-6">
                     <a href="<?php echo e(route('apps.show', $app)); ?>">
-                        <img src="<?php echo e($app->app_icono); ?>" alt="">
+                        <img class="icono_app" src="<?php echo e($app->app_icono); ?>" alt="">
                         <h3><?php echo e($app->app_nombre); ?></h3>
                     </a>
                 </div>

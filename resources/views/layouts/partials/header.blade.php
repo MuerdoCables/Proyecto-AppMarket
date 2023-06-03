@@ -24,8 +24,8 @@
         </button>
 
         <a class="navbar-brand me-sm-1 mx-auto ms-sm-0" href="{{route('home')}}">
-            <img src="imgs/bootstrap.png" width="42" height="34" alt="">
-            <h1>DIW Store</h1>
+            <img src="/imgs/AppMarketLogo.png" width="42" height="34" alt="">
+            <h1>AppMarket</h1>
         </a>
 
         <div class="order-lg-1 ms-2 d-none d-sm-inline-block">

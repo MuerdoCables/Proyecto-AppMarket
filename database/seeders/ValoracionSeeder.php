@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Valoracion;
+use App\Models\App;
 
 class ValoracionSeeder extends Seeder
 {
@@ -19,6 +20,16 @@ class ValoracionSeeder extends Seeder
             'val_puntuacion' => 3,
             'val_texto' => 'Lorem Ipsum',
         ]);
-        Valoracion::factory(4)->create();
+        // Valoracion::factory(4)->create();
+        
+        for ($i = 1; $i <= App::count(); $i++) {
+            for ($j = 1; $j <= 5; $j++) {
+                if ($i == 1 && $j == 1) continue;
+                Valoracion::factory()->create([
+                    'val_app_id' => $i,
+                    'val_usu_id' => $j,
+                ]);
+            }
+        }
     }
 }

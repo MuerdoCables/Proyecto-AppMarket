@@ -49,8 +49,8 @@
             <div class="col-md-3 col-lg-4 col-xl-3 col-12 mx-auto mb-4">
                 <!-- Content -->
                 <h6 class="text-uppercase fw-bold mb-4" href="{{route('home')}}">
-                    <img src="imgs/bootstrap.png" width="25" height="20" alt="">
-                    <span>Diw Store</span>
+                    <img src="/imgs/AppMarketLogo.png" width="25" height="20" alt="">
+                    <span>AppMarket</span>
                 </h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
@@ -72,7 +72,7 @@
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
                 <p><i class="fas fa-home me-3"></i>Valencia, España</p>
-                <p><i class="fas fa-envelope me-3"></i>info@diwstore.com</p>
+                <p><i class="fas fa-envelope me-3"></i>info@appmarket.com</p>
                 <p><i class="fas fa-phone me-3"></i> + 34 644 444 444</p>
                 <p><i class="fas fa-print me-3"></i> + 34 644 444 445</p>
             </div>
@@ -84,8 +84,8 @@
 
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="{{route('home')}}">DiwStore.com</a>
+        © 2023 Copyright:
+        <a class="text-reset fw-bold" href="{{route('home')}}">appmarket.net</a>
     </div>
     <!-- Copyright -->
 </footer>
