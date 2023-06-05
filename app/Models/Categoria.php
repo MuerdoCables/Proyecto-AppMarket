@@ -16,8 +16,8 @@ class Categoria extends Model
     protected $guarded = [];
 
     // Relación 1 a muchos
-    public function apps() {
-        return $this->hasMany('App\Models\App');
+    public function aplicaciones() {
+        return $this->hasMany('App\Models\Aplicacion');
     }
 
 }

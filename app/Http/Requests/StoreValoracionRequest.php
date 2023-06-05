@@ -25,7 +25,7 @@ class StoreValoracionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'val_app_id' => 'required|exists:apps,app_id|numeric|min:0',
+            'val_app_id' => 'required|exists:aplicaciones,app_id|numeric|min:0',
             // 'val_usu_id' => 'required|exists:usuarios,usu_id|numeric|min:0',
             'val_puntuacion' => 'required|numeric|min:0|max:5',
             'val_texto' => '',

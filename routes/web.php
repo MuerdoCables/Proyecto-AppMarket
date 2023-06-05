@@ -1,14 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AppController;
+use App\Http\Controllers\AplicacionController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ValoracionController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,16 +26,40 @@ use App\Http\Controllers\CategoriaController;
 /* ----------------------------- HOME ----------------------------- */
 Route::get('/', HomeController::class)->name('home');
 
-/* ----------------------------- APP ----------------------------- */
-Route::controller(AppController::class)->group(function() {
-    Route::get('apps','index')->name('apps.index');
-    // Route::get('apps/categorias/{categoria}','categorias')->name('apps.categorias');
-    Route::get('apps/create','create')->name('apps.create');
-    Route::post('apps','store')->name('apps.store');
-    Route::get('apps/{app}','show')->name('apps.show');
-    Route::get('apps/{app}/edit','edit')->name('apps.edit');
-    Route::put('apps/{app}','update')->name('apps.update');
-    Route::delete('apps/{app}','destroy')->name('apps.destroy');
+// Route::view('login', 'login');
+// Route::view('dashboard', 'dashboard');
+// Route::post('login', function() {
+//     $credenciales = request()->only('usu_email', 'usu_password');
+
+//     if (Auth::attempt($credenciales)) {
+//         request()->session()->regenerate();
+//         return redirect('home');
+//     }
+//     return redirect('login');
+// });
+/* ----------------------------- LOGIN ----------------------------- */
+// Route::controller(LoginController::class)->group(function() {
+//     Route::get('login','index')->name('login.index');
+//     Route::post('login','authenticate')->name('login.authenticate');
+
+//     // Route::get('aplicaciones','index')->name('aplicaciones.index');
+//     // Route::get('aplicaciones/create','create')->name('aplicaciones.create')->middleware('auth');
+//     // Route::post('aplicaciones','store')->name('aplicaciones.store');
+//     // Route::get('aplicaciones/{aplicacion}','show')->name('aplicaciones.show');
+//     // Route::get('aplicaciones/{aplicacion}/edit','edit')->name('aplicaciones.edit');
+//     // Route::put('aplicaciones/{aplicacion}','update')->name('aplicaciones.update');
+//     // Route::delete('aplicaciones/{aplicacion}','destroy')->name('aplicaciones.destroy');
+// });
+
+/* ----------------------------- APLICACIÓN ----------------------------- */
+Route::controller(AplicacionController::class)->group(function() {
+    Route::get('aplicaciones','index')->name('aplicaciones.index');
+    Route::get('aplicaciones/create','create')->name('aplicaciones.create');
+    Route::post('aplicaciones','store')->name('aplicaciones.store');
+    Route::get('aplicaciones/{aplicacion}','show')->name('aplicaciones.show');
+    Route::get('aplicaciones/{aplicacion}/edit','edit')->name('aplicaciones.edit');
+    Route::put('aplicaciones/{aplicacion}','update')->name('aplicaciones.update');
+    Route::delete('aplicaciones/{aplicacion}','destroy')->name('aplicaciones.destroy');
 });
 
 /* ----------------------------- COMENTARIO ----------------------------- */
@@ -90,3 +116,11 @@ Route::controller(CategoriaController::class)->group(function() {
     Route::put('categorias/{categoria}','update')->name('categorias.update');
     Route::delete('categorias/{categoria}','destroy')->name('categorias.destroy');
 });
+
+// Route::get('/', function() {
+//     return view('welcome');
+// });
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

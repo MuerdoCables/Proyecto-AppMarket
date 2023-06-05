@@ -9,11 +9,11 @@
 @section('content')
     <h2>{{$categoria->cat_nombre}}</h2>
     <section class="row">
-        @foreach ($apps as $app)
+        @foreach ($aplicaciones as $aplicacion)
             <div class="col-md-2 col-sm-4 col-6">
-                <a href="{{route('apps.show', $app)}}">
-                    <img class="icono_app" src="{{$app->app_icono}}" alt="">
-                    <h3>{{$app->app_nombre}}</h3>
+                <a href="{{route('aplicaciones.show', $aplicacion)}}">
+                    <img class="icono_app" src="{{$aplicacion->app_icono}}" alt="">
+                    <h3>{{$aplicacion->app_nombre}}</h3>
                 </a>
             </div>
         @endforeach
@@ -21,7 +21,7 @@
 
     <section class="d-flex">
         <div class="d-inline-block mx-auto">
-            {{$apps->links('pagination::bootstrap-4')}}
+            {{$aplicaciones->links('pagination::bootstrap-4')}}
         </div>
     </section>
 

@@ -21,8 +21,8 @@ class Valoracion extends Model
     }
 
     // Relación uno a muchos (inversa)
-    public function app() {
-        return $this->belongsTo('App\Models\App');
+    public function aplicacion() {
+        return $this->belongsTo('App\Models\Aplicacion');
     }
 
     // Relación 1 a muchos

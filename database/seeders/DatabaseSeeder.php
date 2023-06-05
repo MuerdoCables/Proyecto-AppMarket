@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Rol;
 use App\Models\Usuario;
 use App\Models\Categoria;
-use App\Models\App;
+use App\Models\Aplicacion;
 use App\Models\Valoracion;
 use App\Models\Comentario;
 
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolSeeder::class);
         $this->call(UsuarioSeeder::class);
         $this->call(CategoriaSeeder::class);
-        $this->call(AppSeeder::class);
+        $this->call(AplicacionSeeder::class);
         $this->call(ValoracionSeeder::class);
         $this->call(ComentarioSeeder::class);
     }

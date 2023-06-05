@@ -16,7 +16,7 @@ class UsuarioSeeder extends Seeder
         Usuario::factory()->create([
             'usu_username' => 'Primero',
             'usu_email' => 'primero@hotmail.com',
-            'usu_password' => '1234',
+            'usu_password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'usu_nombre' => 'Primero',
             'usu_apellidos' => 'Primero',
             'usu_descripcion' => 'Lorem Ipsum',

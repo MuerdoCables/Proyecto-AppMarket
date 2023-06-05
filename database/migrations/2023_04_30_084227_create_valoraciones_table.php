@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('valoraciones', function (Blueprint $table) {
             $table->id('val_id');
             $table->unsignedBigInteger('val_app_id');
-            $table->foreign('val_app_id')->references('app_id')->on('apps')
+            $table->foreign('val_app_id')->references('app_id')->on('aplicaciones')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('val_usu_id');
             $table->foreign('val_usu_id')->references('usu_id')->on('usuarios')

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
-use App\Models\App;
+use App\Models\Aplicacion;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCategoriaRequest;
 use App\Http\Requests\UpdateCategoriaRequest;
@@ -45,9 +45,9 @@ class CategoriaController extends Controller
      */
     public function show(Categoria $categoria)
     {
-        if ($categoria->cat_nombre == 'Otros') $apps = App::where('app_categoria', $categoria->cat_nombre)->orWhereNull('app_categoria')->orderBy('app_id', 'desc')->paginate(40);
-        else $apps = App::where('app_categoria', $categoria->cat_nombre)->orderBy('app_id', 'desc')->paginate(40);
-        return view('categorias.show', compact('apps', 'categoria'));
+        if ($categoria->cat_nombre == 'Otros') $aplicaciones = Aplicacion::where('app_categoria', $categoria->cat_nombre)->orWhereNull('app_categoria')->orderBy('app_id', 'desc')->paginate(40);
+        else $aplicaciones = Aplicacion::where('app_categoria', $categoria->cat_nombre)->orderBy('app_id', 'desc')->paginate(40);
+        return view('categorias.show', compact('aplicaciones', 'categoria'));
     }
 
     /**

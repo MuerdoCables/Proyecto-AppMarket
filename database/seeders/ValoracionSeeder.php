@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Valoracion;
-use App\Models\App;
+use App\Models\Aplicacion;
 
 class ValoracionSeeder extends Seeder
 {
@@ -22,7 +22,7 @@ class ValoracionSeeder extends Seeder
         ]);
         // Valoracion::factory(4)->create();
         
-        for ($i = 1; $i <= App::count(); $i++) {
+        for ($i = 1; $i <= Aplicacion::count(); $i++) {
             for ($j = 1; $j <= 5; $j++) {
                 if ($i == 1 && $j == 1) continue;
                 Valoracion::factory()->create([
