@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateValoracionRequest extends FormRequest
 {
@@ -13,6 +14,7 @@ class UpdateValoracionRequest extends FormRequest
      */
     public function authorize(): bool
     {
+        if (Auth::check() == false) return false;
         return true;
     }
 
@@ -26,14 +28,14 @@ class UpdateValoracionRequest extends FormRequest
     {
         return [
             // 'val_app_id' => 'required|exists:aplicaciones,app_id|numeric|min:0',
-            // 'val_usu_id' => 'required|exists:usuarios,usu_id|numeric|min:0',
+            // 'val_usu_id' => 'required|exists:users,id|numeric|min:0',
             'val_puntuacion' => 'required|numeric|min:0|max:5',
             'val_texto' => '',
 
             // Regla de validación unique para la combinación de val_usu_id y val_app_id
             // 'val_usu_id' => [
             //     'required',
-            //     'exists:usuarios,usu_id',
+            //     'exists:users,id',
             //     'numeric',
             //     'min:0',
             //     Rule::unique('valoraciones', 'val_usu_id')->where('val_app_id', $this->val_app_id);

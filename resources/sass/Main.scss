@@ -1,13 +1,15 @@
-$primary: #c29938;
-$secondary: #4a6f53;
+@import "global";
+
+$primary: $primario;
+$secondary: $secundario;
 
 //import the functions & variables
 @import "../scss/functions";
 @import "../scss/variables";
 
 $mis-colores: (
-    "gris": darken(#f8f9fa, 5%),
-    "grisOscuro": darken(#f8f9fa, 20%),
+    "gris": $gris,
+    "grisOscuro": $grisOscuro,
 );
 
 $theme-colors: map-merge($mis-colores, $theme-colors);
@@ -18,6 +20,7 @@ $theme-colors: map-merge($mis-colores, $theme-colors);
 * {
     margin: 0px;
     padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a {
@@ -41,4 +44,10 @@ header .active {
     aspect-ratio: 1 / 1;
     margin: 10px 20%;
     border-radius: 25px;
+}
+
+#logo {
+    width: 25px;
+    margin-right: 10px;
+    border-radius: 10px;
 }

@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('estilos')
-    @vite(['resources/sass/Index.scss'])
+    @vite(['resources/sass/index.scss'])
 @endsection
 
 @section('content')

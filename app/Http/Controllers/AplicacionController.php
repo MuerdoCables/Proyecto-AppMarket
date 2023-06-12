@@ -6,7 +6,9 @@ use App\Models\Aplicacion;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAplicacionRequest;
 use App\Http\Requests\UpdateAplicacionRequest;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Valoracion;
+use App\Models\User;
 
 class AplicacionController extends Controller
 {
@@ -52,10 +54,12 @@ class AplicacionController extends Controller
      */
     public function show(Aplicacion $aplicacion)
     {
-        $usuario = DB::table('usuarios')->where('usu_id', $aplicacion->app_usu_id)->first();
-        $valoraciones = DB::table('valoraciones')->leftJoin('usuarios', 'valoraciones.val_usu_id', '=', 'usuarios.usu_id')
-            ->where('val_app_id', $aplicacion->app_id)->orderBy('val_id', 'desc')->paginate(2);
-        return view('aplicaciones.show', compact('aplicacion', 'usuario', 'valoraciones')); // compact('aplicacion') == ['aplicacion' => $aplicacion]
+        $user = User::where('id', $aplicacion->app_usu_id)->first();
+        $valoraciones = Valoracion::leftJoin('users', 'valoraciones.val_usu_id', '=', 'users.id')
+            ->where('val_app_id', $aplicacion->app_id)->orderBy('val_id', 'desc')->paginate(10);
+        if (Auth::check() == true) $valoracion = Valoracion::where('val_app_id', $aplicacion->app_id)->where('val_usu_id', Auth::user()->id)->first();
+        else $valoracion = null;
+        return view('aplicaciones.show', compact('aplicacion', 'user', 'valoraciones', 'valoracion')); // compact('aplicacion') == ['aplicacion' => $aplicacion]
     }
 
     /**

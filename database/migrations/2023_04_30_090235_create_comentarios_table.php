@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('com_val_id')->references('val_id')->on('valoraciones')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('com_usu_id');
-            $table->foreign('com_usu_id')->references('usu_id')->on('usuarios')
+            $table->foreign('com_usu_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->text('com_texto');
             $table->timestamp('com_created_at')->nullable();

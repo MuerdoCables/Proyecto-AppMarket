@@ -24,8 +24,8 @@ class Aplicacion extends Model
     }
 
     // Relación uno a muchos (inversa)
-    public function usuario() {
-        return $this->belongsTo('App\Models\Usuario');
+    public function user() {
+        return $this->belongsTo('App\Models\User');
     }
 
     // Relación 1 a muchos

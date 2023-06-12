@@ -3,7 +3,7 @@
 @section('title', 'Valoraciones ' . $valoracion->val_usu_id)
 
 @section('content')
-    <h1>Bienvenido al valoracion {{$valoracion->val_puntuacion}}</h1>
+    <h1>Bienvenido al valoración {{$valoracion->val_puntuacion}}</h1>
     <a href="{{route('valoraciones.index')}}">Volver a valoraciones</a>
     <br>
     <a href="{{route('valoraciones.edit', $valoracion)}}">Editar valoracion</a>

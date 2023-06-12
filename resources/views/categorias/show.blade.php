@@ -3,7 +3,7 @@
 @section('title', 'Categoría ' . $categoria->cat_nombre)
 
 @section('estilos')
-    @vite(['resources/sass/Index.scss'])
+    @vite(['resources/sass/index.scss'])
 @endsection
 
 @section('content')
@@ -25,9 +25,11 @@
         </div>
     </section>
 
+    {{-- <a href="{{route('categorias.edit', $categoria)}}">Editar categoria</a>
+
     <form action="{{route('categorias.destroy', $categoria)}}" method="POST">
         @csrf
         @method('delete')
         <button type="submit">Eliminar</button>
-    </form>
+    </form> --}}
 @endsection

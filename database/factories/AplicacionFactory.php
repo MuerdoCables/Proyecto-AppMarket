@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Aplicacion;
 use App\Models\Categoria;
-use App\Models\Usuario;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Aplicacion>
@@ -20,7 +20,7 @@ class AplicacionFactory extends Factory
     public function definition(): array
     {
         return [
-            'app_usu_id' => Usuario::inRandomOrder()->first()->usu_id,
+            'app_usu_id' => User::inRandomOrder()->first()->id,
             'app_nombre' => $this->faker->unique()->name(),
             'app_icono' => $this->faker->imageUrl(),
             'app_descripcion' => $this->faker->paragraph(),

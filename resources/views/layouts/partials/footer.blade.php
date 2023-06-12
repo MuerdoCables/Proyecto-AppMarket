@@ -49,7 +49,7 @@
             <div class="col-md-3 col-lg-4 col-xl-3 col-12 mx-auto mb-4">
                 <!-- Content -->
                 <h6 class="text-uppercase fw-bold mb-4" href="{{route('home')}}">
-                    <img src="/imgs/AppMarketLogo.png" width="25" height="20" alt="">
+                    <img src="/imgs/AppMarketLogo.png" id="logo" alt="">
                     <span>AppMarket</span>
                 </h6>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>

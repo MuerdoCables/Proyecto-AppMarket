@@ -3,15 +3,23 @@
 @section('title', 'Valoraciones edit')
 
 @section('content')
-    <h1>En esta página podrás editar un valoración</h1>
+    <h1>En esta página podrás editar una valoración</h1>
     <form action="{{route('valoraciones.update', $valoracion)}}" method="POST">
 
         @csrf
 
         @method('put')
 
-        <br>
-        <br>
+        @error('val_usu_id')
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+
+        @error('val_app_id')
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+
         <label>
             Puntuación:
             <br>
@@ -38,6 +46,6 @@
 
         <br>
         <br>
-        <button type="submit">Actualizar formulario</button>
+        <button type="submit">Actualizar reseña</button>
     </form>
 @endsection

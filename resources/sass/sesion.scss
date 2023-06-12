@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
-@import "Mixin_y_Extends";
+@import "global";
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -33,7 +33,7 @@ body {
 
         .form-items {
             border: 3px solid #fff;
-            padding: 40px;
+            padding: 30px 40px 20px;
             display: inline-block;
             width: 100%;
             min-width: 540px;
@@ -125,6 +125,15 @@ body {
         #contraseñaOlvidada {
             @media (max-width: 600px) {
                 text-align: center;
+            }
+        }
+
+        small a {
+            text-decoration: underline;
+            color: $primario;
+            
+            &:hover {
+                color: $secundario;
             }
         }
     }

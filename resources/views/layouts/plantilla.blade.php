@@ -14,7 +14,7 @@
 
     <!-- estilos -->
     @vite([
-        'resources/sass/Main.scss',
+        'resources/sass/main.scss',
         'resources/sass/cabecera.scss',
     ])
     @yield('estilos')

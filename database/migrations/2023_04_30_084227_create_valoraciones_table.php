@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('val_app_id')->references('app_id')->on('aplicaciones')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('val_usu_id');
-            $table->foreign('val_usu_id')->references('usu_id')->on('usuarios')
+            $table->foreign('val_usu_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->unique(['val_usu_id', 'val_app_id']);
             $table->integer('val_puntuacion');

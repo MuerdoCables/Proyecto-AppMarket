@@ -3,37 +3,23 @@
 @section('title', 'Valoraciones create')
 
 @section('content')
-    <h1>En esta página podrás crear un valoración</h1>
+    <h1>En esta página podrás crear una valoración</h1>
     <form action="{{route('valoraciones.store')}}" method="POST">
 
         @csrf
 
-        <label>
-            App:
-            <br>
-            <input type="text" name="val_app_id" value="{{old('val_app_id')}}">
-        </label>
-
-        @error('val_app_id')
-            <br>
-            <small>*{{$message}}</small>
-        @enderror
-
-        <br>
-        <br>
-        <label>
-            Usuario:
-            <br>
-            <input type="text" name="val_usu_id" value="{{old('val_usu_id')}}">
-        </label>
-
+        <input type="hidden" name="val_usu_id" value="{{ Auth::user()->id }}">
         @error('val_usu_id')
-            <br>
             <small>*{{$message}}</small>
+            <br>
         @enderror
 
-        <br>
-        <br>
+        <input type="hidden" name="val_app_id" value="{{ $aplicacion->app_id }}">
+        @error('val_app_id')
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+
         <label>
             Puntuación:
             <br>
@@ -60,6 +46,6 @@
 
         <br>
         <br>
-        <button type="submit">Enviar formulario</button>
+        <button type="submit">Crear reseña</button>
     </form>
 @endsection

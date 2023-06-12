@@ -14,8 +14,8 @@
 
     <!-- estilos -->
     @vite([
-        'resources/sass/Main.scss',
-        'resources/sass/FormularioSesion.scss',
+        'resources/sass/main.scss',
+        'resources/sass/sesion.scss',
     ])
 </head>
 
@@ -26,7 +26,7 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items row">
-                        <h1><a href="{{ route('home') }}"><img src="/imgs/AppMarketLogo.png" width="42" height="34" alt=""> AppMarket</a></h1>
+                        <h1><a href="{{ route('home') }}"><img src="/imgs/AppMarketLogo.png" id="logo" alt=""> AppMarket</a></h1>
                         <p>@yield('tipoFormulario')</p>
                         @yield('content')
                     </div>

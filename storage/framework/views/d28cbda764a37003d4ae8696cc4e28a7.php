@@ -4,7 +4,7 @@
 
 <?php $__env->startSection('content'); ?>
     <h1>Bienvenido a la página valoraciones</h1>
-    <a href="<?php echo e(route('valoraciones.create')); ?>">Crear valoracion</a>
+    <a href="<?php echo e(route('valoraciones.create')); ?>">Crear valoración</a>
     <ul>
         <?php $__currentLoopData = $valoraciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valoracion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li><a href="<?php echo e(route('valoraciones.show', $valoracion)); ?>"><?php echo e($valoracion->val_puntuacion); ?></a></li>

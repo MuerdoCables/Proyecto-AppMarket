@@ -3,7 +3,7 @@
 <?php $__env->startSection('title', 'Valoraciones ' . $valoracion->val_usu_id); ?>
 
 <?php $__env->startSection('content'); ?>
-    <h1>Bienvenido al valoracion <?php echo e($valoracion->val_puntuacion); ?></h1>
+    <h1>Bienvenido al valoración <?php echo e($valoracion->val_puntuacion); ?></h1>
     <a href="<?php echo e(route('valoraciones.index')); ?>">Volver a valoraciones</a>
     <br>
     <a href="<?php echo e(route('valoraciones.edit', $valoracion)); ?>">Editar valoracion</a>

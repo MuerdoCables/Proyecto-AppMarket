@@ -1,6 +1,10 @@
-h1 {
-    font-size: larger;
-    vertical-align: text-top;
-    font-weight: bold;
-    display: inline;
+@import "global";
+
+nav {
+    h1 {
+        font-size: larger;
+        vertical-align: text-top;
+        font-weight: bold;
+        display: inline;
+    }
 }

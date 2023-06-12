@@ -25,7 +25,7 @@ class StoreComentarioRequest extends FormRequest
     {
         return [
             'com_val_id' => 'required|exists:valoraciones,val_id|numeric',
-            'com_usu_id' => 'required|exists:usuarios,usu_id|numeric',
+            'com_usu_id' => 'required|exists:users,id|numeric',
             'com_texto' => 'required',
 
             'com_id' => 'prohibited',

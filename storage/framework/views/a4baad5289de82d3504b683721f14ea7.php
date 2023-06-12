@@ -14,7 +14,7 @@
 
     <!-- estilos -->
     <?php echo app('Illuminate\Foundation\Vite')([
-        'resources/sass/Main.scss',
+        'resources/sass/main.scss',
         'resources/sass/cabecera.scss',
     ]); ?>
     <?php echo $__env->yieldContent('estilos'); ?>

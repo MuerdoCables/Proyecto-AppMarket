@@ -25,7 +25,7 @@ class UpdateAplicacionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'app_usu_id' => 'required|exists:usuarios,usu_id|numeric|min:0',
+            'app_usu_id' => 'required|exists:users,id|numeric|min:0',
             'app_nombre' => [
                 'required',
                 'max:255',

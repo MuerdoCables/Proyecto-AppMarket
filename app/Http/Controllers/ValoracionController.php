@@ -34,8 +34,9 @@ class ValoracionController extends Controller
      */
     public function store(StoreValoracionRequest $request)
     {
-        $valoracion = Valoracion::create($request->all());
-        return redirect()->route('valoraciones.show', $valoracion);
+        // $valoracion = Valoracion::create($request->all());
+        Valoracion::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -63,7 +64,7 @@ class ValoracionController extends Controller
     public function update(UpdateValoracionRequest $request, Valoracion $valoracion)
     {
         $valoracion->update($request->all());
-        return redirect()->route('valoraciones.show', $valoracion);
+        return redirect()->back();
     }
 
     /**
@@ -73,6 +74,6 @@ class ValoracionController extends Controller
     public function destroy(Valoracion $valoracion)
     {
         $valoracion->delete();
-        return redirect()->route('valoraciones.index');
+        return redirect()->back();
     }
 }

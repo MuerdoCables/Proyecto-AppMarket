@@ -1,3 +1,5 @@
+@import "global";
+
 main {
     margin-top: 20px;
 }
@@ -12,4 +14,22 @@ article {
     border: 2px solid #d2d2d2;
     border-radius: 20px;
     background-color: white;
+}
+
+.fa-star {
+    color: lightgrey;
+    cursor: pointer;
+}
+
+.fa-star.active {
+    color: gold;
+}
+
+#edit_app a {
+    text-decoration: underline;
+    color: $primario;
+    
+    &:hover {
+        color: $secundario;
+    }
 }

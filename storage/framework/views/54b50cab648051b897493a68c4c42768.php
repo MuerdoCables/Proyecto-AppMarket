@@ -3,51 +3,37 @@
 <?php $__env->startSection('title', 'Valoraciones create'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <h1>En esta página podrás crear un valoración</h1>
+    <h1>En esta página podrás crear una valoración</h1>
     <form action="<?php echo e(route('valoraciones.store')); ?>" method="POST">
 
         <?php echo csrf_field(); ?>
 
-        <label>
-            App:
-            <br>
-            <input type="text" name="val_app_id" value="<?php echo e(old('val_app_id')); ?>">
-        </label>
-
-        <?php $__errorArgs = ['val_app_id'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-            <br>
-            <small>*<?php echo e($message); ?></small>
-        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-
-        <br>
-        <br>
-        <label>
-            Usuario:
-            <br>
-            <input type="text" name="val_usu_id" value="<?php echo e(old('val_usu_id')); ?>">
-        </label>
-
+        <input type="hidden" name="val_usu_id" value="<?php echo e(Auth::user()->id); ?>">
         <?php $__errorArgs = ['val_usu_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-            <br>
             <small>*<?php echo e($message); ?></small>
+            <br>
         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
 
-        <br>
-        <br>
+        <input type="hidden" name="val_app_id" value="<?php echo e($aplicacion->app_id); ?>">
+        <?php $__errorArgs = ['val_app_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+            <small>*<?php echo e($message); ?></small>
+            <br>
+        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+
         <label>
             Puntuación:
             <br>
@@ -88,7 +74,7 @@ unset($__errorArgs, $__bag); ?>
 
         <br>
         <br>
-        <button type="submit">Enviar formulario</button>
+        <button type="submit">Crear reseña</button>
     </form>
 <?php $__env->stopSection(); ?>
 

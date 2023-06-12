@@ -3,7 +3,7 @@
 <?php $__env->startSection('title', 'Aplicaciones'); ?>
 
 <?php $__env->startSection('estilos'); ?>
-    <?php echo app('Illuminate\Foundation\Vite')(['resources/sass/Index.scss']); ?>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/sass/index.scss']); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>

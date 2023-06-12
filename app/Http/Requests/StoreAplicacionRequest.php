@@ -24,7 +24,7 @@ class StoreAplicacionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'app_usu_id' => 'required|exists:usuarios,usu_id|numeric|min:0',
+            'app_usu_id' => 'required|exists:users,id|numeric|min:0',
             'app_nombre' => 'required|unique:aplicaciones,app_nombre|max:255',
             'app_icono' => 'required|max:255',
             'app_version' => 'max:15',

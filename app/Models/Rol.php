@@ -16,7 +16,7 @@ class Rol extends Model
     protected $guarded = [];
 
     // Relación 1 a muchos
-    public function usuarios() {
-        return $this->hasMany('App\Models\Usuario');
+    public function users() {
+        return $this->hasMany('App\Models\User');
     }
 }

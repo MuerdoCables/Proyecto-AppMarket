@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('aplicaciones', function (Blueprint $table) {
             $table->id('app_id');
             $table->unsignedBigInteger('app_usu_id');
-            $table->foreign('app_usu_id')->references('usu_id')->on('usuarios')
+            $table->foreign('app_usu_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->string('app_nombre')->unique();
             $table->string('app_icono');

@@ -16,8 +16,8 @@ class Comentario extends Model
     protected $guarded = [];
 
     // Relación uno a muchos (inversa)
-    public function usuario() {
-        return $this->belongsTo('App\Models\Usuario');
+    public function user() {
+        return $this->belongsTo('App\Models\User');
     }
 
     // Relación uno a muchos (inversa)

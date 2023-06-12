@@ -41,16 +41,24 @@ endif;
 unset($__errorArgs, $__bag); ?>
         </div>
 
+        <div class="col-12">
+            <br>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
+                <label class="form-check-label" for="remember">Recordar sesión</label>
+            </div>
+        </div>
+
         
 
-        <br>
-        <div class="text-center">
-            <p class="text-center"><a href="<?php echo e(route('password.request')); ?>">¿Has olvidado la contraseña?</a></p>
+        <div class="col-12 form-button mt-4 text-center">
+            <button id="submit" type="submit" class="btn btn-primary">Iniciar sesión</button>
         </div>
 
-        <div class="form-button mt-4 text-center">
-            <button id="submit" type="submit" class="btn btn-primary">Continuar</button>
+        <div class="col-12 text-center mt-3">
+            <small class="text-light">¿Eres nuevo en AppMarket? <a href="<?php echo e(route('register')); ?>">Crear una cuenta</a></small>
         </div>
+        
     </form>
 <?php $__env->stopSection(); ?>
 

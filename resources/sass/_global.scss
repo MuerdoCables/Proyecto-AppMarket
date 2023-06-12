@@ -1,3 +1,8 @@
+$primario: #c29938;
+$secundario: #4a6f53;
+$gris: darken(#f8f9fa, 5%);
+$grisOscuro: darken(#f8f9fa, 20%);
+
 @mixin transicion($property, $duration, $timing: linear) {
     -moz-transition: $property $duration $timing;
     -webkit-transition: $property $duration $timing;
