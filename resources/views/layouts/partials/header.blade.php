@@ -31,7 +31,7 @@
         @auth
             <div class="nav-item dropdown order-xl-1 ms-2">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('users.show', Auth::user()) }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    <img src="{{ Auth::user()->foto }}" class="rounded-circle img-fluid foto_perfil" alt="Imagen de perfil">
+                    <img src="{{ '/storage/perfiles/' . Auth::user()->foto }}" class="rounded-circle img-fluid foto_perfil" alt="Imagen de perfil">
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -76,7 +76,9 @@
                 </li>
                 
                 <li class="nav-item"><a class="nav-link {{request()->routeIs('aplicaciones.index') ? 'active' : ''}}" href="{{ route('aplicaciones.index') }}">Más recientes</a></li>
-                <li class="nav-item"><a class="nav-link {{request()->routeIs('aplicaciones.create') ? 'active' : ''}}" href="{{ route('aplicaciones.create') }}">Nueva app</a></li>
+                @auth
+                    <li class="nav-item"><a class="nav-link {{request()->routeIs('aplicaciones.create') ? 'active' : ''}}" href="{{ route('aplicaciones.create') }}">Nueva app</a></li>
+                @endauth
                 <hr class="text-secondary">
                 @guest
                     <li class="nav-item d-inline-block d-sm-none"><a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a></li>

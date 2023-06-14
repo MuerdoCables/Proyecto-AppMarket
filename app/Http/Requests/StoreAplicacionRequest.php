@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreAplicacionRequest extends FormRequest
 {
@@ -12,6 +13,8 @@ class StoreAplicacionRequest extends FormRequest
      */
     public function authorize(): bool
     {
+        if (Auth::check() == false) return false;
+        if (request()->app_usu_id != Auth::user()->id) return false;
         return true;
     }
 
@@ -26,11 +29,11 @@ class StoreAplicacionRequest extends FormRequest
         return [
             'app_usu_id' => 'required|exists:users,id|numeric|min:0',
             'app_nombre' => 'required|unique:aplicaciones,app_nombre|max:255',
-            'app_icono' => 'required|max:255',
-            'app_version' => 'max:15',
+            'app_icono' => 'nullable|max:255',
+            'app_version' => 'nullable|max:15',
             'app_categoria' => 'required|exists:categorias,cat_nombre',
-            'app_precio' => 'required|numeric|min:0',
-            'app_ruta' => 'max:255',
+            'app_precio' => 'nullable|numeric|min:0',
+            'app_ruta' => 'nullable|max:255',
             'app_enlace' => 'nullable|url|max:255',
 
             'app_id' => 'prohibited',

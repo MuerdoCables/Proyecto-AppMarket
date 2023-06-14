@@ -6,6 +6,8 @@ use App\Models\Valoracion;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreValoracionRequest;
 use App\Http\Requests\UpdateValoracionRequest;
+use App\Models\Comentario;
+use App\Models\User;
 
 class ValoracionController extends Controller
 {
@@ -45,7 +47,9 @@ class ValoracionController extends Controller
      */
     public function show(Valoracion $valoracion)
     {
-        return view('valoraciones.show', compact('valoracion')); // compact('valoracion') == ['valoracion' => $valoracion]
+        $user = User::where('id', $valoracion->val_usu_id)->first();
+        $comentarios = Comentario::leftJoin('users', 'comentarios.com_usu_id', '=', 'users.id')->where('com_val_id', $valoracion->val_id)->orderBy('com_id', 'asc')->paginate(20);
+        return view('valoraciones.show', compact('valoracion', 'comentarios', 'user')); // compact('valoracion') == ['valoracion' => $valoracion]
     }
 
     /**

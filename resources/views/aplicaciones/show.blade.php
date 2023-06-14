@@ -35,16 +35,17 @@
         <article class="col-lg-8 p-3">
             <div class="row">
                 <div class="col-md-2 col-sm-3 col-4">
-                    <img src="{{ $aplicacion->app_icono }}" id="icono_app" class="card-img icono_app" alt="" />
+                    <img src="{{ '/storage/app_iconos/' . $aplicacion->app_icono }}" id="icono_app" class="card-img icono_app" alt="" />
                 </div>
-                <div class="col-md-7 col-sm-5 col-7 d-flex flex-column justify-content-around" id="info_app">
+                <div class="col-md-6 col-sm-5 col-7 d-flex flex-column justify-content-around" id="info_app">
                     <h2 class="d-inline m-0 fs-2">{{ $aplicacion->app_nombre }}</h2>
                     <a href="{{ route('users.show', $user->id) }}">{{ $user->username }}</a>
                     <small class="text-muted">Versión: {{ $aplicacion->app_version }}</small>
                 </div>
-                <div class="col-md-3 col-sm-4 col-12 d-flex flex-column align-items-center justify-content-around">
-                    <a class="btn btn-primary w-100 my-sm-auto my-3" href="{{ $aplicacion->app_ruta }}" role="button">Instalar</a>
-                    <a class="btn btn-primary w-100 my-sm-auto my-2" href="{{ $aplicacion->app_enlace }}" role="button">Sitio web</a>
+                <div class="col-md-4 col-sm-4 col-12 d-flex flex-column align-items-center justify-content-around">
+                    {{-- @if (!empty($aplicacion->app_ruta)) <a class="btn btn-primary w-100 my-sm-auto my-3" href="{{ route('download', $aplicacion->app_ruta) }}" role="button">Descargar</a> @endif --}}
+                    @if (!empty($aplicacion->app_ruta)) <a class="btn btn-primary w-100 my-sm-auto my-3" href="{{ route('descargar.archivo', $aplicacion->app_ruta) }}" role="button">Descargar</a> @endif
+                    @if (!empty($aplicacion->app_enlace)) <a class="btn btn-primary w-100 my-sm-auto my-2" href="{{ $aplicacion->app_enlace }}" role="button">Ir al sitio web</a> @endif
                 </div>
             </div>
             <hr>
@@ -170,20 +171,24 @@
                             <div class="list-group-item py-3 mb-0">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <a href="{{route('users.show', $calificacion->val_usu_id)}}">
-                                        <img src="{{$calificacion->foto}}" class="rounded-circle img-fluid foto_perfil" alt="Imagen de perfil">
+                                        <img src="{{ '/storage/perfiles/' . $calificacion->foto }}" class="rounded-circle img-fluid foto_perfil" alt="Imagen de perfil">
                                         <b class="ms-2">{{$calificacion->username}}</b>
                                     </a>
                                     <div class="pb-2 estrellas text-warning">
                                         {{$calificacion->val_puntuacion}}
                                     </div>
                                 </div>
-                                <p class="mb-1">{{$calificacion->val_texto}}</p>
+                                <p class="mb-1 calificacion overflow-hidden">{{$calificacion->val_texto}}</p>
                                 <div class="d-flex justify-content-between align-items-center mt-2">
                                     <a href="{{route('valoraciones.show', $calificacion->val_id)}}" class="">Ver comentarios</a>
                                     <small>{{ $calificacion->val_updated_at->format('d-m-Y h:m:s') }}</small>
                                 </div>
                             </div>
                         @endforeach
+
+                        @if (count($valoraciones) <= 0)
+                            <div class="list-group-item py-3 mb-0">No hay valoraciones...</div>
+                        @endif
                     </div>
 
                     <div class="d-flex mt-3 justify-content-end align-items-center">

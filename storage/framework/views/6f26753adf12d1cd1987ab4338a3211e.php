@@ -18,7 +18,7 @@
         <?php if(auth()->guard()->check()): ?>
             <div class="nav-item dropdown order-xl-1 ms-2">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="<?php echo e(route('users.show', Auth::user())); ?>" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    <img src="<?php echo e(Auth::user()->foto); ?>" class="rounded-circle img-fluid foto_perfil" alt="Imagen de perfil">
+                    <img src="<?php echo e('/storage/perfiles/' . Auth::user()->foto); ?>" class="rounded-circle img-fluid foto_perfil" alt="Imagen de perfil">
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -64,7 +64,9 @@
                 </li>
                 
                 <li class="nav-item"><a class="nav-link <?php echo e(request()->routeIs('aplicaciones.index') ? 'active' : ''); ?>" href="<?php echo e(route('aplicaciones.index')); ?>">Más recientes</a></li>
-                <li class="nav-item"><a class="nav-link <?php echo e(request()->routeIs('aplicaciones.create') ? 'active' : ''); ?>" href="<?php echo e(route('aplicaciones.create')); ?>">Nueva app</a></li>
+                <?php if(auth()->guard()->check()): ?>
+                    <li class="nav-item"><a class="nav-link <?php echo e(request()->routeIs('aplicaciones.create') ? 'active' : ''); ?>" href="<?php echo e(route('aplicaciones.create')); ?>">Nueva app</a></li>
+                <?php endif; ?>
                 <hr class="text-secondary">
                 <?php if(auth()->guard()->guest()): ?>
                     <li class="nav-item d-inline-block d-sm-none"><a class="nav-link" href="<?php echo e(route('login')); ?>">Iniciar sesión</a></li>

@@ -9,26 +9,21 @@
 <?php $__env->startSection('content'); ?>
 
     <?php $__currentLoopData = $categorias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoria): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <section class="row">
+        <section class="row mb-5">
             <div class="col-12">
-                <h2 class="page-header"><?php echo e($categoria->cat_nombre); ?></h2>
+                <h2 class="page-header"><a href="<?php echo e(route('categorias.show', $categoria->cat_id)); ?>"><?php echo e($categoria->cat_nombre); ?></a></h2>
             </div>
 
             <?php $__currentLoopData = $aplicaciones[$categoria->cat_nombre]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aplicacion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-md-2 col-sm-4 col-6">
                     <a href="<?php echo e(route('aplicaciones.show', $aplicacion)); ?>">
-                        <img class="icono_app" src="<?php echo e($aplicacion->app_icono); ?>" alt="">
+                        <img class="icono_app" src="<?php echo e('/storage/app_iconos/' . $aplicacion->app_icono); ?>" alt="">
                         <h3><?php echo e($aplicacion->app_nombre); ?></h3>
                     </a>
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-            <section class="d-flex">
-                <div class="d-inline-block mx-auto">
-                    <?php echo e($aplicaciones[$categoria->cat_nombre]->links('pagination::bootstrap-4')); ?>
-
-                </div>
-            </section>
+            
 
         </section>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

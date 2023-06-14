@@ -12,7 +12,7 @@
         @foreach ($aplicaciones as $aplicacion)
             <div class="col-md-2 col-sm-4 col-6">
                 <a href="{{route('aplicaciones.show', $aplicacion)}}">
-                    <img class="icono_app" src="{{$aplicacion->app_icono}}" alt="">
+                    <img class="icono_app" src="{{ '/storage/app_iconos/' . $aplicacion->app_icono }}" alt="">
                     <h3>{{$aplicacion->app_nombre}}</h3>
                 </a>
             </div>

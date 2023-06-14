@@ -52,7 +52,7 @@
                     <img src="/imgs/AppMarketLogo.png" id="logo" alt="">
                     <span>AppMarket</span>
                 </h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>¡¡AppMarket te ofrece un gran catálogo de aplicaciones y muchas otras funcionalidades!!</p>
             </div>
             <!-- Grid column -->
     

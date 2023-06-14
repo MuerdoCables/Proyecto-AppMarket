@@ -12,7 +12,7 @@
         <?php $__currentLoopData = $aplicaciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aplicacion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-2 col-sm-4 col-6">
                 <a href="<?php echo e(route('aplicaciones.show', $aplicacion)); ?>">
-                    <img class="icono_app" src="<?php echo e($aplicacion->app_icono); ?>" alt="">
+                    <img class="icono_app" src="<?php echo e('/storage/app_iconos/' . $aplicacion->app_icono); ?>" alt="">
                     <h3><?php echo e($aplicacion->app_nombre); ?></h3>
                 </a>
             </div>

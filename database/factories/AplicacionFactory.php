@@ -22,12 +22,14 @@ class AplicacionFactory extends Factory
         return [
             'app_usu_id' => User::inRandomOrder()->first()->id,
             'app_nombre' => $this->faker->unique()->name(),
-            'app_icono' => $this->faker->imageUrl(),
+            'app_icono' => 'predeterminado.png',
+            // 'app_icono' => $this->faker->imageUrl(),
             'app_descripcion' => $this->faker->paragraph(),
             'app_version' => $this->faker->semver(false, false),
             'app_categoria' => Categoria::inRandomOrder()->first()->cat_nombre,
             'app_precio' => $this->faker->randomFloat(2, 0, 100),
-            'app_ruta' => $this->faker->url(),
+            'app_ruta' => 'predeterminado.zip',
+            // 'app_ruta' => $this->faker->url(),
             'app_enlace' => $this->faker->url(),
             'app_obsoleto' => false,
         ];

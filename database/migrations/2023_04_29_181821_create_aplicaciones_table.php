@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('app_usu_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->string('app_nombre')->unique();
-            $table->string('app_icono');
+            $table->string('app_icono')->nullable();
             $table->text('app_descripcion')->nullable();
             $table->string('app_version', 15)->nullable();
             $table->string('app_categoria')->nullable();

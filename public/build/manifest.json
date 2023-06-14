@@ -1,0 +1,52 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app-66e7f68a.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/estrellas.js": {
+    "file": "assets/estrellas-ff6782ef.js",
+    "isEntry": true,
+    "src": "resources/js/estrellas.js"
+  },
+  "resources/js/estrellas2.js": {
+    "file": "assets/estrellas2-85dd6056.js",
+    "isEntry": true,
+    "src": "resources/js/estrellas2.js"
+  },
+  "resources/js/imagen.js": {
+    "file": "assets/imagen-00903c9e.js",
+    "isEntry": true,
+    "src": "resources/js/imagen.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-bbd6a014.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  },
+  "resources/sass/cabecera.scss": {
+    "file": "assets/cabecera-69f86814.css",
+    "isEntry": true,
+    "src": "resources/sass/cabecera.scss"
+  },
+  "resources/sass/descargar.scss": {
+    "file": "assets/descargar-b46fad0b.css",
+    "isEntry": true,
+    "src": "resources/sass/descargar.scss"
+  },
+  "resources/sass/index.scss": {
+    "file": "assets/index-e28664f0.css",
+    "isEntry": true,
+    "src": "resources/sass/index.scss"
+  },
+  "resources/sass/main.scss": {
+    "file": "assets/main-240a26b3.css",
+    "isEntry": true,
+    "src": "resources/sass/main.scss"
+  },
+  "resources/sass/sesion.scss": {
+    "file": "assets/sesion-4aec94c9.css",
+    "isEntry": true,
+    "src": "resources/sass/sesion.scss"
+  }
+}

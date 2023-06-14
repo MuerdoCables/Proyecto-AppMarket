@@ -10,6 +10,7 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ValoracionController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\DownloadController;
 // use App\Http\Controllers\UsuarioController;
 
 /*
@@ -93,6 +94,9 @@ Route::controller(CategoriaController::class)->group(function() {
 });
 
 Auth::routes();
+
+// Route::get('/download/{file}' , 'DownloadController@download')->name('download');
+Route::get('/descargar/{archivo}' , [DownloadController::class, 'descargar'])->name('descargar.archivo');
 
 // /* ----------------------------- USUARIO ----------------------------- */
 // Route::controller(UsuarioController::class)->group(function() {

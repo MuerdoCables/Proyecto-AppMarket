@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateAplicacionRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Valoracion;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class AplicacionController extends Controller
 {
@@ -37,16 +38,42 @@ class AplicacionController extends Controller
      */
     public function store(StoreAplicacionRequest $request)
     {
-        /*
-        $aplicacion = new Aplicacion();
-        $aplicacion->name = $request->name;
-        $aplicacion->descripcion = $request->descripcion;
-        $aplicacion->categoria = $request->categoria;
-        $aplicacion->save();
-        */
-        $aplicacion = Aplicacion::create($request->all());
-        return redirect()->route('aplicaciones.show', $aplicacion);
+        if (!$request->hasFile('aplicacion') || !$request->hasFile('aplicacion')) return redirect()->back();
+        $aplicacion = Aplicacion::create($request->except(['icono', 'aplicacion']));
+        if ($request->hasFile('icono')) {
+            $ruta = Storage::disk('public')->put('app_iconos', $request->file('icono'));
+            $aplicacion->app_icono = basename($ruta);
+            $aplicacion->save();
+        }
+        // $aplicacion->app_icono = "predeterminados/app.png";
+        if ($request->hasFile('aplicacion')) {
+            $ruta = Storage::disk('public')->put('app_rutas', $request->file('aplicacion'));
+            $aplicacion->app_ruta = basename($ruta);
+            $aplicacion->save();
+        }
+        return redirect()->route('aplicaciones.show', compact('aplicacion'));
     }
+
+    // public function store2(StoreAplicacionRequest $request)
+    // {
+    //     /*
+    //     $aplicacion = new Aplicacion();
+    //     $aplicacion->name = $request->name;
+    //     $aplicacion->descripcion = $request->descripcion;
+    //     $aplicacion->categoria = $request->categoria;
+    //     $aplicacion->save();
+    //     */
+    //     // dd($request);
+
+    //     // $aplicacion = Aplicacion::create($request->all());
+    //     $aplicacion = Aplicacion::create($request->except(['icono', 'aplicacion']));
+    //     if ($request->hasFile('icono')) $aplicacion->app_icono = Storage::disk('public')->put('app_iconos', $request->file('icono'));
+    //     else $aplicacion->app_icono = "predeterminados/app.png";
+    //     if ($request->hasFile('aplicacion')) $aplicacion->app_ruta = Storage::disk('public')->put('app_rutas', $request->file('aplicacion'));
+    //     // if ($request->hasFile('aplicacion')) $aplicacion->app_ruta = $request->file('aplicacion')->store('app_rutas');
+    //     $aplicacion->save();
+    //     return redirect()->route('aplicaciones.show', $aplicacion);
+    // }
 
     /**
      * Display the specified resource.
@@ -77,8 +104,19 @@ class AplicacionController extends Controller
      */
     public function update(UpdateAplicacionRequest $request, Aplicacion $aplicacion)
     {
-        $aplicacion->update($request->all());
-        return redirect()->route('aplicaciones.show', $aplicacion);
+        if (!$request->hasFile('aplicacion') || !$request->hasFile('aplicacion')) return redirect()->back();
+        $aplicacion->update::create($request->except(['icono', 'aplicacion']));
+        if ($request->hasFile('icono')) {
+            $ruta = Storage::disk('public')->put('app_iconos', $request->file('icono'));
+            $aplicacion->app_icono = basename($ruta);
+            $aplicacion->save();
+        }
+        if ($request->hasFile('aplicacion')) {
+            $ruta = Storage::disk('public')->put('app_rutas', $request->file('aplicacion'));
+            $aplicacion->app_ruta = basename($ruta);
+            $aplicacion->save();
+        }
+        return redirect()->route('aplicaciones.show', compact('aplicacion'));
     }
 
     /**

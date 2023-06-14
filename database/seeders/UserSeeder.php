@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'nombre' => 'Primero',
             'apellidos' => 'Primero',
             'descripcion' => 'Lorem Ipsum',
-            'foto' => 'https://via.placeholder.com/640x480.png/001144?text=fuga',
+            'foto' => 'primero.jpg',
             'fecha_nacimiento' => '14/02/23',
             'telefono' => 123456789,
             'pais' => 'España',

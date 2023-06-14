@@ -34,8 +34,8 @@ class ComentarioController extends Controller
      */
     public function store(StoreComentarioRequest $request)
     {
-        $comentario = Comentario::create($request->all());
-        return redirect()->route('comentarios.show', $comentario);
+        Comentario::create($request->all());
+        return redirect()->back();
     }
 
     /**
